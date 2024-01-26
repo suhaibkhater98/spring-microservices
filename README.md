@@ -1,2 +1,2 @@
-# spring-boot-microservices-new
-This repository contains the latest source code of the spring-boot-microservices tutorial
+# spring-boot-microservices
+This project to practice microservices and utlized the sync and async communcation between the services
