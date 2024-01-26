@@ -1,4 +1,4 @@
-package com.programmingtechie.orderservice.config;
+package com.khater.orderservice.config;
 
 
 import org.springframework.context.annotation.Bean;

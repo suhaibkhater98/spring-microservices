@@ -1,11 +1,11 @@
-package com.programmingtechie.orderservice.service;
+package com.khater.orderservice.service;
 
-import com.programmingtechie.orderservice.dto.InventoryResponse;
-import com.programmingtechie.orderservice.dto.OrderLineItemsDto;
-import com.programmingtechie.orderservice.dto.OrderRequest;
-import com.programmingtechie.orderservice.model.Order;
-import com.programmingtechie.orderservice.model.OrderLineItems;
-import com.programmingtechie.orderservice.repository.OrderRepository;
+import com.khater.orderservice.dto.InventoryResponse;
+import com.khater.orderservice.dto.OrderLineItemsDto;
+import com.khater.orderservice.dto.OrderRequest;
+import com.khater.orderservice.model.Order;
+import com.khater.orderservice.model.OrderLineItems;
+import com.khater.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
