@@ -21,7 +21,7 @@ import java.util.UUID;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
     public void placeOrder(OrderRequest orderRequest) {
         Order order = new Order();
@@ -39,15 +39,15 @@ public class OrderService {
                 .map(OrderLineItems::getSkuCode)
                 .toList();
 
-        InventoryResponse[] isInStacks = webClient.get()
-                .uri("http://localhost:8082/api/inventory" ,
+        InventoryResponse[] isInStacks = webClientBuilder.build().get()
+                .uri("http://inventory-service/api/inventory" ,
                         uriBuilder -> uriBuilder.queryParam("skuCode" , skuCodes).build())
                 .retrieve()
                 .bodyToMono(InventoryResponse[].class)
                 .block();
 
-        boolean allProductsInStock = Arrays.stream(isInStacks).allMatch(InventoryResponse::getInStock);
-        if(allProductsInStock){
+
+        if(isInStacks != null && isInStacks.length > 0 && Arrays.stream(isInStacks).allMatch(InventoryResponse::getInStock)){
             orderRepository.save(order);
         } else {
             throw new IllegalArgumentException("We do not have from this product anymore. try again later!");

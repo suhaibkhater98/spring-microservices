@@ -1,4 +1,4 @@
-package org.khater.discoveryserver;
+package org.khater.apigateway.discoveryserver;
 
 
 import org.springframework.boot.SpringApplication;
